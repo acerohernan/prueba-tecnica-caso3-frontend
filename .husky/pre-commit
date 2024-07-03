@@ -1,0 +1,10 @@
+#! /bin/bash
+
+echo "Formatting the files..."
+yarn format
+
+echo "Linting the files..."
+yarn lint
+
+echo "Building the final bundle..."
+yarn build
