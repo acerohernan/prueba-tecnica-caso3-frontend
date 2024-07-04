@@ -1,3 +1,10 @@
+export interface IUser {
+	id: string;
+	userName: string;
+	email: string;
+	roles: IRole[];
+}
+
 export type IRole = "Admin" | "Editor" | "Viewer";
 
 export interface ICreateUserForm {
