@@ -10,9 +10,17 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 import UserAvatarImg from "@/assets/images/user-placeholder.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { removeAccessToken } from "@/lib/token";
 
 export function UserNav() {
+	const navigate = useNavigate();
+
+	function handleCloseSession() {
+		removeAccessToken();
+		navigate("/login");
+	}
+
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
@@ -35,7 +43,9 @@ export function UserNav() {
 				<DropdownMenuSeparator />
 
 				<Link to="/login">
-					<DropdownMenuItem>Cerrar sesión</DropdownMenuItem>
+					<DropdownMenuItem onClick={handleCloseSession}>
+						Cerrar sesión
+					</DropdownMenuItem>
 				</Link>
 			</DropdownMenuContent>
 		</DropdownMenu>
