@@ -6,7 +6,6 @@ import {
 	DialogFooter,
 	DialogHeader,
 	DialogTitle,
-	DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -17,17 +16,23 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
-import { PlusIcon } from "@radix-ui/react-icons";
+import { useAppDispatch } from "@/store";
+import { navigationActions } from "@/store/navigation";
 
-export function EditUserDialog() {
+interface IProps {
+	open: boolean;
+}
+
+export function EditUserDialog({ open }: IProps) {
+	const dispatch = useAppDispatch();
+
 	return (
-		<Dialog>
-			<DialogTrigger asChild>
-				<Button size="sm" className="ml-auto h-8">
-					<PlusIcon className="mr-2 h-4 w-4" />
-					<span>Editar usuario</span>
-				</Button>
-			</DialogTrigger>
+		<Dialog
+			open={open}
+			onOpenChange={(open) => {
+				if (!open) dispatch(navigationActions.closeAllModals());
+			}}
+		>
 			<DialogContent className="sm:max-w-[500px]">
 				<DialogHeader>
 					<DialogTitle>Editar usuario</DialogTitle>
