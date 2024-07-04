@@ -18,6 +18,10 @@ Al finalizar debe entregarse:
 - Usuario/Password de prueba
 - Otra información necesaria para levantar el sistema
 
+## Video Demo
+
+https://github.com/acerohernan/prueba-tecnica-caso3-frontend/assets/73747878/8a71d4c2-506c-4c30-ba6b-787403e5117a
+
 ## Funcionalidades
 
 - [x] Prettier
@@ -26,3 +30,4 @@ Al finalizar debe entregarse:
 - [x] TailwindCSS
 - [x] Storybook
 - [x] Rutas relativas e.g. 'import x from @/components/x'
+
