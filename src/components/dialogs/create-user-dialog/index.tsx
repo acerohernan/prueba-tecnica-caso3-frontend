@@ -66,7 +66,7 @@ export function CreateUserDialog() {
 	}
 
 	return (
-		<Dialog open={open}>
+		<Dialog open={open} onOpenChange={setOpen}>
 			<DialogTrigger asChild>
 				<Button
 					size="sm"
