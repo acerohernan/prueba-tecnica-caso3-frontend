@@ -21,6 +21,12 @@ module.exports = {
 		"@typescript-eslint/no-unsafe-assignment": 0,
 		"@typescript-eslint/restrict-template-expressions": 0,
 		"react-refresh/only-export-components": 0,
+		"@typescript-eslint/no-unsafe-call": 0,
+		"@typescript-eslint/no-unsafe-member-access": 0,
+		"@typescript-eslint/no-unsafe-return": 0,
+		"@typescript-eslint/no-unnecessary-condition": 0,
+		"@typescript-eslint/no-unsafe-argument": 0,
+		"react/prop-types": 0,
 	},
 	parserOptions: {
 		ecmaVersion: "latest",
