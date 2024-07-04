@@ -1,11 +1,28 @@
 import { lazy } from "react";
-import { createBrowserRouter } from "react-router-dom";
+import { Navigate, createBrowserRouter } from "react-router-dom";
 
-const HomePage = lazy(() => import("./pages/Home"));
+const LoginPage = lazy(() => import("./pages/auth/login"));
+
+const DashboardLayout = lazy(() => import("./layout/dashboard"));
+const DashboardHomePage = lazy(() => import("./pages/dashboard/home"));
 
 export const router = createBrowserRouter([
 	{
 		path: "/",
-		element: <HomePage />,
+		element: <DashboardLayout />,
+		children: [
+			{
+				path: "",
+				element: <DashboardHomePage />,
+			},
+		],
+	},
+	{
+		path: "/login",
+		element: <LoginPage />,
+	},
+	{
+		path: "*",
+		element: <Navigate to="/login" />,
 	},
 ]);
