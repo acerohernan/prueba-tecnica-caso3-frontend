@@ -1,10 +1,20 @@
+import { useAppSelector } from "@/store";
 import { columns } from "./components/columns";
 import { DataTable } from "./components/data-table";
+import { DataTableSkeleton } from "./components/data-table-skeleton";
 
-import { Task } from "./data/schema";
+import { useUsers } from "@/hooks/useUsers";
+import { EditUserDialog } from "@/components/dialogs/edit-user-dialog";
+import { DeleteUserDialog } from "@/components/dialogs/delete-user-dialog";
 
 export default function DashboardHomePage() {
-	const tasks: Task[] = [];
+	const showUpdateModal = useAppSelector(
+		(state) => state.navigation.showUpdateModal
+	);
+	const showDeleteModal = useAppSelector(
+		(state) => state.navigation.showDeleteModal
+	);
+	const { data: users, isLoading } = useUsers();
 
 	return (
 		<>
@@ -22,8 +32,15 @@ export default function DashboardHomePage() {
 						</p>
 					</div>
 				</div>
-				<DataTable data={tasks} columns={columns} />
+				{isLoading ? (
+					<DataTableSkeleton />
+				) : (
+					<DataTable data={users ?? []} columns={columns} />
+				)}
 			</div>
+			{/* Only show dialogs when are invoked */}
+			<EditUserDialog open={showUpdateModal} />
+			<DeleteUserDialog open={showDeleteModal} />
 		</>
 	);
 }
