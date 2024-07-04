@@ -84,9 +84,26 @@ POSTGRES_DB=mantenimiento_simple_dev
 docker compose up -d
 ```
 
-- Agrega las credenciales al appsettings.json o a los user-secrets de .NET SDK para que el proyecto pueda funcionar
+- Agrega las siguientes credenciales al appsettings.json:
+
+```json
+"ConnectionStrings": {
+   "DefaultConnection": "Host=localhost;Database=mantenimiento_simple_dev;Username=mantenimiento_simple_dev_user;Password=password"
+ },
+ "JWT": {
+   "ValidIssuer": "mantenimientosimple.api",
+   "Secret": "8DNEHF3tW2nVybEZVCc1xwbNinRpX7Dc"
+ }
+```
+ o a los user-secrets de .NET SDK para que el proyecto pueda funcionar
 
 ```bash
+dotnet user-secrets init
+
+dotnet user-secrets set "JWT:ValidIssuer" "mantenimientosimple.api"
+dotnet user-secrets set "JWT:Secret" "8DNEHF3tW2nVybEZVCc1xwbNinRpX7Dc"
+dotnet user-secrets set "ConnectionStrings:DefaultConnection" "Host=localhost;Database=mantenimiento_simple_dev;Username=mantenimiento_simple_dev_user;Password=password"
+
 dotnet user-secrets list
 ### Output
 JWT:ValidIssuer = mantenimientosimple.api
