@@ -27,6 +27,8 @@ module.exports = {
 		"@typescript-eslint/no-unnecessary-condition": 0,
 		"@typescript-eslint/no-unsafe-argument": 0,
 		"react/prop-types": 0,
+		"@typescript-eslint/no-misused-promises": 0,
+		"no-mixed-spaces-and-tabs": 0,
 	},
 	parserOptions: {
 		ecmaVersion: "latest",
