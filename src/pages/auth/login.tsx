@@ -1,6 +1,19 @@
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { getAccessToken } from "@/lib/token";
+
 import { UserAuthForm } from "./user-auth-form";
 
 export default function LoginPage() {
+	const navigate = useNavigate();
+
+	useEffect(() => {
+		// si hay token, se redirecciona al panel de usuarios
+		const token = getAccessToken();
+		if (token) navigate("/");
+	}, [navigate]);
+
 	return (
 		<>
 			<div className="container relative h-dvh flex-col items-center justify-center grid lg:px-0">
