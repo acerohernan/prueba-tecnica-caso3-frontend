@@ -1,5 +1,6 @@
-import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
+
+import { cn } from "@/lib/utils";
 
 export function MainNav({
 	className,
