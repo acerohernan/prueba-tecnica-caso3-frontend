@@ -1,11 +1,8 @@
-import React from "react";
 import { Outlet } from "react-router-dom";
 
 import { Header } from "@/components/header";
 
-interface Props extends React.PropsWithChildren {}
-
-export const DashboardLayout: React.FC<Props> = () => {
+export default function DashboardLayout() {
 	return (
 		<div>
 			<div className="flex h-dvh overflow-hidden">
@@ -20,4 +17,4 @@ export const DashboardLayout: React.FC<Props> = () => {
 			</div>
 		</div>
 	);
-};
+}
