@@ -136,7 +136,6 @@ export function CreateUserDialog() {
 							<Label htmlFor="name">Contraseña</Label>
 							<PasswordInput
 								disabled={loading}
-								type="password"
 								placeholder="••••••••••"
 								{...register("password", {
 									required: "Este campo es requerido",
@@ -156,7 +155,6 @@ export function CreateUserDialog() {
 						<div className="items-center gap-4">
 							<Label htmlFor="name">Confirmar contraseña</Label>
 							<PasswordInput
-								type="password"
 								disabled={loading}
 								placeholder="••••••••••"
 								{...register("confirmPassword", {
